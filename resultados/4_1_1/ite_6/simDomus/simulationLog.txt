@@ -1,0 +1,18 @@
+@Inicio Contagem de Pixel 2/6/2024 - 20:50:1
+
+[info]   Contagem de pixel anterior encontrada - não será necessário recalcular
+[info]   Contagem de pixels realizada com sucesso
+@Fim Contagem de Pixel 2/6/2024 - 20:50:1
+
+================================================================================
+ 			           Domus - 2020                          
+ 			              2.6.20.4                                      
+================================================================================
+@Inicio Simulacao: 2/6/2024 - 20:50:1
+
+[info]   Dados climáticos inicializados com sucesso
+[info]   Climatizadores, ganhos internos, ventilação, infiltraçao e parâmetros gerais inicializados com sucesso
+[info]   Sucesso ao inicializar a simulação (s60ão executados 60 passos)
+@Fim simulacao 2/6/2024 - 20:50:2
+
+[mens]   Execução terminada com sucesso !
