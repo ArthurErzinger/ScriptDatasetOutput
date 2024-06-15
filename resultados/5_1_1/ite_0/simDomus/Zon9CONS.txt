@@ -1,6 +1,0 @@
-Domus - Relatório de Demanda e Consumo de Energia
-
-		Iluminação		Equipamentos		Geração de Vapor	Aquecimento		Resfriamento		Demanda Média		Demanda Máxima
-Janeiro   	  0.00 kWh		  0.00 kWh		  0.00 kWh		  0.00 kWh		  0.00 kWh		 0.000 W		  0.00 W  
-
-Total =   0.00 KWh
