@@ -1,7 +1,7 @@
-# ScriptDatasedOutput
+# Script Dataset Output
 
-Script escrito em python visando a organização do output de co-simulações de arquivos 'txt' para 'csv'.
+Script escrito em python para a organização de outputs de co-simulações em formatos de dataset.
 
 Desenvolvido por Arthur e Micael.
 
-PUCPR
+PUCPR.
