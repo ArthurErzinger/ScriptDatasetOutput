@@ -14,6 +14,6 @@ diretorio_raiz = ''
 for root, dirs, files in os.walk(diretorio_raiz):
     if fn.fnmatch(root, '*/simDomus'):
         for nome in files:
-            if fn.fnmatch(nome, 'Zon*TUP.txt'):
+            if fn.fnmatch(nome, 'Zon*TUP.txt') or fn.fnmatch(nome, 'Zon*CONS.txt'):
                 #Código
                 pass
