@@ -1,4 +1,0 @@
-[Inicio: 1/1 as 6:00:00 - Fim: 1/1 as 6:59:59 h]
-[Intervalo de Amostragem = 3600 s]
-[Temp_I]	[Temp_E]	[Umi_I] 	[Umi_E] 	[Mês]	[Dia]	[Hora]
-20.03038	24.00000	0.00000000	5984441000263680.00000000	1	1	07:00:00
