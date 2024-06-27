@@ -4,7 +4,9 @@ Script escrito em python para a organização de outputs de co-simulações com 
 
 Como usar:
 
-    -Copie o caminho da pasta resultado (está dentro de bestest/bestest_results)
+    -Baixar o pandas (pip install pandas)
+    -Baixar o openpyxl (pip install openpyxl)
+    -Copie o caminho da pasta da sua simulação
     -Cole dentro das aspas de "diretorioRaiz" no inicio do código
 
 Desenvolvido por Arthur e Micael.
