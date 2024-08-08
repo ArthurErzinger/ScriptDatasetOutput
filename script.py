@@ -21,7 +21,7 @@ def caminhos(root, nome):
 ## para linux '/home/diretorio1/diretorio2/...diretorion/'
 
 ##para Windows 'disco:\\diretorio1\\diretorio2\\...diretorion\\'
-
+diretorioRaiz = ''
 # Lista para armazenar linhas do CSV
 csvTUP = []
 csvCONS = []
