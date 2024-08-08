@@ -18,7 +18,9 @@ def caminhos(root, nome):
     return caminhoDoArquivo, zona, iteracao, simulacao
 
 # Caminho da pasta raiz que você deseja iterar
-diretorioRaiz = ''
+## para linux '/home/diretorio1/diretorio2/...diretorion/'
+
+##para Windows 'disco:\\diretorio1\\diretorio2\\...diretorion\\'
 
 # Lista para armazenar linhas do CSV
 csvTUP = []
@@ -35,8 +37,8 @@ for root, dirs, files in os.walk(diretorioRaiz):
                 # Obter os caminhos e outras informações
                 caminhoDoArquivo, zona, iteracao, simulacao = caminhos(root, nome)
 
-                # Abre o arquivo para leitura com encoding ISO-8859-1
-                with open(caminhoDoArquivo, "r", encoding="ISO-8859-1") as arquivo:
+                # Abre o arquivo para leitura com encoding UTF-8
+                with open(caminhoDoArquivo, "r", encoding="UTF-8", errors="ignore") as arquivo:
                     # Lê todas as linhas do arquivo e armazena em uma lista
                     linhas = arquivo.readlines()
 
@@ -50,16 +52,15 @@ for root, dirs, files in os.walk(diretorioRaiz):
                     mes = valores[4]
                     dia = valores[5]
                     hora = valores[6]
-                    
+
                     # Constrói a linha do CSV sem o caractere de nova linha
                     linhaCSV = f"{simulacao},{iteracao},{zona},{temperaturaInterna},{temperaturaExterna},{umidadeInterna},{umidadeExterna},{mes},{dia},{hora}"
                     csvTUP.append(linhaCSV)
             elif fn.fnmatch(nome, 'Zon*CONS.txt'):
                 # Obter os caminhos e outras informações
                 caminhoDoArquivo, zona, iteracao, simulacao = caminhos(root, nome)
-
-                # Abre o arquivo para leitura com encoding ISO-8859-1
-                with open(caminhoDoArquivo, "r", encoding="ISO-8859-1") as arquivo:
+                # Abre o arquivo para leitura com encoding UTF-8
+                with open(caminhoDoArquivo, "r", encoding="UTF-8", errors="ignore") as arquivo:
                     # Lê todas as linhas do arquivo e armazena em uma lista
                     linhas = arquivo.readlines()
 
@@ -75,26 +76,26 @@ for root, dirs, files in os.walk(diretorioRaiz):
                     demandaMaxima = valores[13]
 
                     # Constrói a linha do CSV sem o caractere de nova linha
-                    linhaCSV = f"{simulacao},{iteracao},{zona},{iluminacao},{equipamentos},{geracaoDeVapor},{aquecimento},{resfriamento},{demandaMedia},{demandaMaxima},{mes},{dia},{hora}"
+                    linhaCSV = f"{simulacao},{iteracao},{zona},{iluminacao},{equipamentos},{geracaoDeVapor},{aquecimento},{resfriamento},{demandaMedia},{demandaMaxima}"
                     csvCONS.append(linhaCSV)
 
 # Escreve todas as linhas no arquivo CSV de TUP de uma vez
 with open('csvTUP.csv', 'w') as arquivo_csv:
-    arquivo_csv.write('Simulação,Iteração,Zona,Temperatura Interna,Temperatura Externa,Umidade Interna,Umidade Externa,Mês,Dia,Hora\n')
+    arquivo_csv.write('simulacao,iteracao,zona,temperatura_interna,temperatura_Externa,umidade_interna,umidade_externa,mes,dia,hora\n')
     for linha in csvTUP:
         arquivo_csv.write(f"{linha}\n")
 
 # Escreve todas as linhas no arquivo CSV de CONS de uma vez
 with open('csvCONS.csv', 'w') as arquivo_csv:
-    arquivo_csv.write('Simulação,Iteração,Zona,Iluminação,Equipamentos,Geração de vapor,Aquecimento,Resfriamento,Demanda média,Demanda máxima,Mês,Dia,Hora\n')
+    arquivo_csv.write('simulacao,iteracao,zona,iluminacao,equipamentos,geracao_de_vapor,aquecimento,resfriamento,demanda_media,demanda_maxima\n')
     for linha in csvCONS:
         arquivo_csv.write(f"{linha}\n")
 
-# Ler o arquivo CSV corretamente com Pandas
+# Ler o arquivo CSV corretamente com Pandasaa
 csvTUP = pd.read_csv('csvTUP.csv', sep=',', index_col=False)
 
 # Ordena as 3 colunas - Simulação,Iteração,Zona - em ordem crescente
-tupOrdenado = csvTUP.sort_values(by=['Simulação', 'Iteração', 'Zona'], ascending=[True, True, True])
+tupOrdenado = csvTUP.sort_values(by=['simulacao', 'iteracao', 'zona'], ascending=[True, True, True])
 
 # Salvar o CSV em um arquivo Excel
 tupOrdenado.to_excel('tabelaTUP.xlsx', index=False)
@@ -103,7 +104,7 @@ tupOrdenado.to_excel('tabelaTUP.xlsx', index=False)
 csvCONS = pd.read_csv('csvCONS.csv', sep=',', index_col=False)
 
 # Ordena as 3 colunas - Simulação,Iteração,Zona - em ordem crescente
-consOrdenado = csvCONS.sort_values(by=['Simulação', 'Iteração', 'Zona'], ascending=[True, True, True])
+consOrdenado = csvCONS.sort_values(by=['simulacao', 'iteracao', 'zona'], ascending=[True, True, True])
 
 # Salvar o CSV em um arquivo Excel
 consOrdenado.to_excel('tabelaCONS.xlsx', index=False)
