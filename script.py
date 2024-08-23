@@ -32,7 +32,7 @@ def caminhos(root, nome):
 
     return caminhoDoArquivo, zona, iteracao, simulacao
 
-diretorioRaiz = r'/home/arthurerzinger/arthur/resultados'
+diretorioRaiz = r''
 
 if (platform.system() == "Windows"):
     diretorioRaiz = diretorioRaiz.replace('\\', '\\\\')
